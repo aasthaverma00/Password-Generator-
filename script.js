@@ -6,6 +6,10 @@ const uppercase = document.querySelector("#uppercase")
 const lowercase = document.querySelector("#lowercase")
 const numbers = document.querySelector("#numbers")
 const symbols = document.querySelector("#symbols")
+const copyBtn = document.querySelector("#copyBtn")
+const copiedMessage = document.querySelector("#copiedMessage")
+const strengthFill = document.querySelector("#strengthFill");
+const strengthText = document.querySelector("#strengthText");
 
 lengthSlider.addEventListener('input', () => {
     lengthDisplay.textContent = lengthSlider.value
@@ -17,22 +21,22 @@ const lowerCaseChars = 'abcdefghijklmnopqrstuvwxyz'
 const number = '1234567890'
 const symbol = '!@#%^&*()_+-={}|[]:;<>,./?'
 function generatePassword() {
-    let char = ' '
+    let char = ''
     let password = '';
 
     if (uppercase.checked) char += upperCaseChars
     if (lowercase.checked) char += lowerCaseChars
     if (numbers.checked) char += number
     if (symbols.checked) char += symbol
-   
-    if (char === ' ') {
+
+    if (char === '') {
         alert('Please enter atleast one option!')
         return;
     }
-    
+
 
     const length = parseInt(lengthSlider.value)
-    for (i = 0; i < length; i++) {
+    for (let i = 0; i < length; i++) {
         const randomIndex = Math.floor(Math.random() * char.length)
         // char[randomIndex] random password generate krke de rha h 
         password += char[randomIndex]
@@ -40,7 +44,56 @@ function generatePassword() {
 
     passwordText.textContent = password
     // It will display password on scrren
+
+    updateStrength();
 }
+
+function updateStrength(){
+
+    let score = 0;
+
+    if(uppercase.checked) score++;
+    if(lowercase.checked) score++;
+    if(numbers.checked) score++;
+    if(symbols.checked) score++;
+
+    const length = Number(lengthSlider.value);
+
+    if(length >= 12) score++;
+    if(length >= 20) score++;
+
+    if(score <= 2){
+        strengthFill.style.width = "30%";
+        strengthFill.style.background = "red";
+        strengthText.textContent = "Weak";
+    }
+    else if(score <=4){
+        strengthFill.style.width = "65%";
+        strengthFill.style.background = "orange";
+        strengthText.textContent = "Medium";
+    }
+    else{
+        strengthFill.style.width = "100%";
+        strengthFill.style.background = "green";
+        strengthText.textContent = "Strong";
+    }
+
+}
+
+
+
+
+copyBtn.addEventListener("click", () => {
+    const password = passwordText.textContent;
+    navigator.clipboard.writeText(password).then(() => {
+        copiedMessage.classList.add('show')
+        setTimeout(() => {
+            copiedMessage.classList.remove('show')
+        }, 1500);
+    })
+
+});
+
 generateBtn.addEventListener('click', generatePassword);
 generatePassword()
 // it will display any random password on screen when we open a page once 
