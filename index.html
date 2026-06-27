@@ -9,16 +9,53 @@
 </head>
 
 <body>
+
+
     <div class="container">
         <div class="password-display">
             <p class="password-text" id="passwordText"> </p>
         </div>
+        <div class="options">
+            <!-- UPPERCASE -->
+             <div class="option">
+                <label  class="checkbox-wrapper">
+                    <input type="checkbox" id= "uppercase">
+                </label>
+                <label for="uppercase">Uppercase</label>
+             </div>
+            <!-- LOWERCASE -->
+             <div class="option">
+                <label  class="checkbox-wrapper">
+                    <input type="checkbox" id= "lowercase">
+                </label>
+                <label for="lowercase">Lowercase</label>
+             </div>
+            <!-- NUMBER -->
+             <div class="option">
+                <label  class="checkbox-wrapper">
+                    <input type="checkbox" id= "numbers" checked>
+                </label>
+                <label for="numbers">Numbers</label>
+             </div>
+            <!-- SYMBOL -->
+             <div class="option">
+                <label  class="checkbox-wrapper">
+                    <input type="checkbox" id= "symbols">
+                </label>
+                <label for="symbols">Symbols</label>
+             </div>
+        </div>
+
+        <div class="slider-container">
+            <label for="lengthSlider">Password Length</label>
+            <div class="slider-wrapper">
+                <input type="range" min="6" max="32" id = "lengthSlider" class="slider" value="12">
+                <div class="length-display" id = "lengthDisplay"></div>
+            </div>
+        </div>
+
         <button class="genrate-btn" id="generateBtn"> Generate Password </button>
     </div>
-
-
-
-
     <script src="script.js"></script>
 </body>
 
