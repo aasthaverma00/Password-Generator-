@@ -8,8 +8,11 @@ const numbers = document.querySelector("#numbers")
 const symbols = document.querySelector("#symbols")
 const copyBtn = document.querySelector("#copyBtn")
 const copiedMessage = document.querySelector("#copiedMessage")
-const strengthFill = document.querySelector("#strengthFill");
-const strengthText = document.querySelector("#strengthText");
+const strengthFill = document.querySelector("#strengthFill")
+const strengthText = document.querySelector("#strengthText")
+const themeBtn = document.getElementById("themeToggle");
+
+
 
 lengthSlider.addEventListener('input', () => {
     lengthDisplay.textContent = lengthSlider.value
@@ -48,31 +51,31 @@ function generatePassword() {
     updateStrength();
 }
 
-function updateStrength(){
+function updateStrength() {
 
     let score = 0;
 
-    if(uppercase.checked) score++;
-    if(lowercase.checked) score++;
-    if(numbers.checked) score++;
-    if(symbols.checked) score++;
+    if (uppercase.checked) score++;
+    if (lowercase.checked) score++;
+    if (numbers.checked) score++;
+    if (symbols.checked) score++;
 
     const length = Number(lengthSlider.value);
 
-    if(length >= 12) score++;
-    if(length >= 20) score++;
+    if (length >= 12) score++;
+    if (length >= 20) score++;
 
-    if(score <= 2){
+    if (score <= 2) {
         strengthFill.style.width = "30%";
         strengthFill.style.background = "red";
         strengthText.textContent = "Weak";
     }
-    else if(score <=4){
+    else if (score <= 4) {
         strengthFill.style.width = "65%";
         strengthFill.style.background = "orange";
         strengthText.textContent = "Medium";
     }
-    else{
+    else {
         strengthFill.style.width = "100%";
         strengthFill.style.background = "green";
         strengthText.textContent = "Strong";
@@ -80,7 +83,35 @@ function updateStrength(){
 
 }
 
+// const themeBtn = document.getElementById("themeToggle");
 
+// themeBtn.addEventListener("click", () => {
+//     document.body.classList.toggle("dark-mode");
+
+//     if (document.body.classList.contains("dark-mode")) {
+//         themeBtn.textContent = "☀️";
+//     } else {
+//         themeBtn.textContent = "🌙";
+//     }
+// });
+
+if(localStorage.getItem("theme") === "dark"){
+    document.body.classList.add("dark-mode");
+    themeBtn.textContent = "☀️";
+}
+
+
+themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if(document.body.classList.contains("dark-mode")){
+        themeBtn.textContent = "☀️";
+        localStorage.setItem("theme","dark");
+    }else{
+        themeBtn.textContent = "🌙";
+        localStorage.setItem("theme","light");
+    }
+});
 
 
 copyBtn.addEventListener("click", () => {
