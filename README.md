@@ -37,30 +37,37 @@ It helps users generate secure passwords with customizable options and an easy-t
 
 ---
 
-## 📸 Screenshot
+## 📸 Screenshots
 
-![Password Generator ]()
+### ☀️ Light Mode
 
----
+![Light Mode](./lightmode.png)
 
-## 📂 Project Structure
+### 🌙 Dark Mode
 
+![Dark Mode](./darkmode.png)
+
+
+## 📂 Project structure 
+--
 Password-Generator/
 │── index.html
 │── style.css
 │── script.js
 │── README.md
+│── light-mode.png
+│── dark-mode.png
 ---
 
 ## 🌐 Live Demo
 
-Coming Soon...
+https://aasthaverma00.github.io/Password-Generator-/
 
 ---
 
 ## 👩‍💻 Author
 
-Aastha
+Aastha verma 
 
 ---
 
