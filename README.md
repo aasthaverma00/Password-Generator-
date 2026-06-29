@@ -47,9 +47,9 @@ It helps users generate secure passwords with customizable options and an easy-t
 
 ![Dark Mode](./darkmode.png)
 
-
 ## 📂 Project structure 
 --
+```
 Password-Generator/
 │── index.html
 │── style.css
@@ -57,6 +57,7 @@ Password-Generator/
 │── README.md
 │── light-mode.png
 │── dark-mode.png
+```
 ---
 
 ## 🌐 Live Demo
