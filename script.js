@@ -83,18 +83,7 @@ function updateStrength() {
 
 }
 
-// const themeBtn = document.getElementById("themeToggle");
-
-// themeBtn.addEventListener("click", () => {
-//     document.body.classList.toggle("dark-mode");
-
-//     if (document.body.classList.contains("dark-mode")) {
-//         themeBtn.textContent = "☀️";
-//     } else {
-//         themeBtn.textContent = "🌙";
-//     }
-// });
-
+// dark mode 
 if(localStorage.getItem("theme") === "dark"){
     document.body.classList.add("dark-mode");
     themeBtn.textContent = "☀️";
